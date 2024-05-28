@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container-team {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 100px;
+            max-width: 860px;
+            position: relative;
+        }
+
+        .team {
+            height: 400px;
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            transition: transform 0.6s ease;
+        }
+
+        .team:hover {
+            transform: scale(1.05);
+        }
+
+        .img-team img {
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+        }
+
+        .name-team {
+            margin-top: 20px;
+        }
+
+        .detail-team {
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .team:hover .detail-team {
+            opacity: 1;
+        }
+
+        .garry {
+            grid-column: 1 / span 2;
+            justify-self: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container-team">
+        <div class="team prachan" >
+            <div class="img-team">
+                <img src="Assets/IMG/Webdevelopment.jpg" alt="Prachan Subedi">
+            </div>
+            <div class="name-team">
+                <h1>Prachan Subedi</h1>
+            </div>
+            <p class="detail-team"></p>
+        </div>
+        <div class="team prayas">
+            <div class="img-team">
+                <img src="Assets/IMG/Webdevelopment.jpg" alt="Prayas Bhatt">
+            </div>
+            <div class="name-team">
+                <h1>Prayas Bhatt</h1>
+            </div>
+            <p class="detail-team"></p>
+        </div>
+        <div class="team garry">
+            <div class="img-team">
+                <img src="Assets/IMG/Webdevelopment.jpg" alt="Garry Shrestha">
+            </div>
+            <div class="name-team">
+                <h1>Garry Shrestha</h1>
+            </div>
+            <p class="detail-team"></p>
+        </div>
+        <div class="team rozeen">
+            <div class="img-team">
+                <img src="Assets/IMG/Webdevelopment.jpg" alt="Rozeen Shrestha">
+            </div>
+            <div class="name-team">
+                <h1>Rozeen Shrestha</h1>
+            </div>
+            <p class="detail-team"></p>
+        </div>
+        <div class="team manoj">
+            <div class="img-team">
+                <img src="Assets/IMG/Webdevelopment.jpg" alt="Manoj Magar">
+            </div>
+            <div class="name-team">
+                <h1>Manoj Magar</h1>
+            </div>
+            <p class="detail-team"></p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const teamDetails = {
+                'Garry Shrestha': 'Team Leader with expertise in project management.',
+                'Prachan Subedi': 'Backend Developer with a focus on database optimization.',
+                'Prayas Bhatt': 'Frontend Developer with 5 years of experience.',
+                'Rozeen Shrestha': 'UI/UX Designer with a keen eye for detail.',
+                'Manoj Magar': 'Full Stack Developer with a passion for learning new technologies.'
+            };
+
+            const teamElements = document.querySelectorAll('.team');
+
+            teamElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    const name = element.querySelector('.name-team h1').textContent;
+                    const detail = element.querySelector('.detail-team');
+                    detail.textContent = teamDetails[name];
+                });
+
+                element.addEventListener('mouseleave', () => {
+                    const detail = element.querySelector('.detail-team');
+                    detail.textContent = '';
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
